@@ -1,0 +1,19 @@
+spring:
+  profiles:
+    active: dev
+  application:
+    name: @pom.artifactId@
+server:
+  port: 8761
+eureka:
+  server:
+    enable-self-preservation: false
+  instance:
+    perferIpAddress: true
+    hostname: platform-eureka
+    #instanceId: ${spring.cloud.client.ipAddress}:${spring:application.name}:${server.port}:@project:version@:
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka
