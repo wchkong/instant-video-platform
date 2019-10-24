@@ -7,9 +7,6 @@
     <include resource="org/springframework/boot/logging/logback/console-appender.xml"/>
     <!-- 开启后可以通过jmx动态控制日志级别(springboot Admin的功能) -->
     <!--<jmxConfigurator/>-->
-<!--
-    <conversionRule conversionWord="ip" converterClass="gbdpcloudcommonbase.gbdpcloudcommonbase.log.IPLogConfig" />
--->
     <springProperty scope="context" name="springAppName" source="spring.application.name"/>
     <property name="LOG_PATH" value="/data/logs/platform/${springAppName}"/>
     <property name="LOG_FILE" value="${springAppName}"/>
