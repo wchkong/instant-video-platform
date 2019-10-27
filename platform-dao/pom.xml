@@ -20,6 +20,7 @@
             <plugin>
                 <groupId>org.jooq</groupId>
                 <artifactId>jooq-codegen-maven</artifactId>
+                <version>${org.jooq.version}</version>
                 <executions>
                     <execution>
                         <id>jooq-codegen</id>
@@ -29,6 +30,13 @@
                         </goals>
                     </execution>
                 </executions>
+                <dependencies>
+                    <dependency>
+                        <groupId>mysql</groupId>
+                        <artifactId>mysql-connector-java</artifactId>
+                        <version>${mysql.connector.version}</version>
+                    </dependency>
+                </dependencies>
                 <configuration>
                     <jdbc>
                         <driver>com.mysql.jdbc.Driver</driver>
@@ -42,15 +50,17 @@
                             <instanceFields>true</instanceFields>
                             <pojos>true</pojos>
                             <daos>true</daos>
+                            <fluentSetters>true</fluentSetters>
+                            <globalObjectReferences>true</globalObjectReferences>
                         </generate>
                         <database>
                             <inputSchema>instant_video_platform</inputSchema>
                             <name>org.jooq.util.mysql.MySQLDatabase</name>
                             <includes>.*</includes>
-                            <excludes>schema_version</excludes>
+                            <excludes>xdual</excludes>
                         </database>
                         <target>
-                            <packageName>com.wchkong.dao</packageName>
+                            <packageName>com.wchkong.dao.model</packageName>
                             <directory>target/generated-sources/jooq</directory>
                         </target>
                     </generator>
