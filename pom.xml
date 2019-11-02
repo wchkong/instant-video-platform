@@ -24,6 +24,8 @@
         <module>platform-common</module>
         <module>platform-dao</module>
         <module>platform-auth</module>
+        <module>platform-webapp</module>
+        <module>platformre-commend</module>
     </modules>
 
     <properties>
